@@ -1,0 +1,6 @@
+interface:
+  display_name: "Strix Framewok"
+  short_description: "Security assessments with evidence and retesting"
+  default_prompt: "Use $strix-framewok to assess my authorized target with the available tools."
+policy:
+  allow_implicit_invocation: true

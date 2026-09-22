@@ -1,0 +1,16 @@
+{
+  "name": "strix-framework",
+  "owner": {
+    "name": "abhi-zit77"
+  },
+  "metadata": {
+    "description": "Strix-derived security assessment workflows for coding agents."
+  },
+  "plugins": [
+    {
+      "name": "strix-framewok",
+      "source": "./plugins/strix-framewok",
+      "description": "Strix-derived, tool-adaptive security testing skill."
+    }
+  ]
+}

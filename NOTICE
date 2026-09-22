@@ -1,0 +1,10 @@
+Strix Framewok, version 1.0.0
+Adaptation and new host-integration material: Copyright 2026 abhi-zit77.
+
+This distribution includes modified material from usestrix/strix,
+https://github.com/usestrix/strix, commit 56e9ae982c2fdd00c7c0b9afc49af035470dd310,
+distributed under the Apache License, Version 2.0.
+Upstream attribution and copyright notices are retained in the applicable files.
+Each adapted reference identifies its original source and modification.
+This is an independent project, not an official Strix product or endorsement.
+The upstream snapshot contains no NOTICE file; this notice records this adaptation.

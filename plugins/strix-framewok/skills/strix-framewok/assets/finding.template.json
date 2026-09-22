@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "",
+  "title": "",
+  "asset": "",
+  "instances": [],
+  "attacker_prerequisites": [],
+  "invariant": "",
+  "evidence_kind": "hypothesis",
+  "reproduction": [],
+  "baseline": "",
+  "adverse_observation": "",
+  "negative_control": "",
+  "evidence_refs": [],
+  "impact": "",
+  "counterevidence": "",
+  "confidence": "low",
+  "confidence_rationale": "",
+  "severity": "unrated",
+  "severity_rationale": "",
+  "severity_change_conditions": "",
+  "remediation": "",
+  "dependency": null,
+  "fix_verification": {
+    "status": "not_requested",
+    "gates": []
+  }
+}

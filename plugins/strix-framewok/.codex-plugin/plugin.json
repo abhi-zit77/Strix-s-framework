@@ -1,0 +1,20 @@
+{
+  "name": "strix-framewok",
+  "version": "1.0.0",
+  "description": "Strix-derived security assessments using host-native tools.",
+  "author": {
+    "name": "abhi-zit77"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Strix Framewok",
+    "shortDescription": "Security assessments with evidence and retesting.",
+    "longDescription": "An independent Strix-derived skill that adapts security testing, reporting and requested fixes to available host tools.",
+    "developerName": "abhi-zit77",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use $strix-framewok to assess the authorized target and report verified findings and coverage gaps."
+  },
+  "repository": "https://github.com/abhi-zit77/Strix-s-framework",
+  "license": "Apache-2.0"
+}

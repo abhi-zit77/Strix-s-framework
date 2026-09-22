@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "",
+  "status": "in_progress",
+  "coverage": "partial",
+  "intent": "audit",
+  "depth": "standard",
+  "scope": {
+    "sources": [],
+    "origins": [],
+    "identities": [],
+    "exclusions": [],
+    "effect_limits": [],
+    "authorization_basis": ""
+  },
+  "source_revision": "",
+  "dirty_state": "",
+  "runtime_identity": "",
+  "capabilities": [],
+  "evidence_directory": "",
+  "limitations": [],
+  "started_at": "",
+  "finished_at": ""
+}

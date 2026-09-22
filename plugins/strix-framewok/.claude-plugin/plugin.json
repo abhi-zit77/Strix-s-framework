@@ -1,0 +1,17 @@
+{
+  "name": "strix-framewok",
+  "version": "1.0.0",
+  "description": "Execute Strix-derived security assessments through your coding agent and available tools.",
+  "author": {
+    "name": "abhi-zit77"
+  },
+  "homepage": "https://github.com/abhi-zit77/Strix-s-framework",
+  "repository": "https://github.com/abhi-zit77/Strix-s-framework",
+  "license": "Apache-2.0",
+  "keywords": [
+    "security",
+    "pentest",
+    "code-review",
+    "agent-skills"
+  ]
+}

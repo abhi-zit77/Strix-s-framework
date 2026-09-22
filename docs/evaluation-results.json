@@ -1,0 +1,721 @@
+{
+  "scope": "Synthetic local function calls; no deployment or browser evidence",
+  "host": "Codex evaluator with terminal and file tools",
+  "contract": "Caller supplies arguments except authenticated principal; PUBLIC_ROOT is trusted configuration",
+  "symlink_test": "blocked: Windows privilege error 1314",
+  "source_only_pass": {
+    "target_execution": false,
+    "closure": "reasoned",
+    "confidence_ceiling": "medium"
+  },
+  "runs": [
+    {
+      "label": "target_before",
+      "timestamp": "2026-09-22T17:12:41.370904+00:00",
+      "source_sha256": "f9f6531cc2d1e7c477ef82f6869f0fccb11ec2f4a3558e747766a0f173568801",
+      "python": "3.14.5",
+      "met": 8,
+      "total": 19,
+      "cases": [
+        {
+          "id": "record_owner_alice",
+          "function": "record",
+          "expected": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "actual": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_owner_bob",
+          "function": "record",
+          "expected": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "actual": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_foreign_alice",
+          "function": "record",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "record_foreign_bob",
+          "function": "record",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "search_apple",
+          "function": "search",
+          "expected": {
+            "value": [
+              "apple"
+            ]
+          },
+          "actual": {
+            "value": [
+              "apple"
+            ]
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_banana",
+          "function": "search",
+          "expected": {
+            "value": [
+              "banana"
+            ]
+          },
+          "actual": {
+            "value": [
+              "banana"
+            ]
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_absent",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_true",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": [
+              "apple",
+              "banana"
+            ]
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "search_false",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_union",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": [
+              "UNION_MARKER"
+            ]
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "search_quote",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "exception": "OperationalError",
+            "message": "near \"Reilly\": syntax error"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_public",
+          "function": "download",
+          "expected": {
+            "value": "PUBLIC_MARKER"
+          },
+          "actual": {
+            "value": "PUBLIC_MARKER"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_nested",
+          "function": "download",
+          "expected": {
+            "value": "NESTED_PUBLIC"
+          },
+          "actual": {
+            "value": "NESTED_PUBLIC"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_traversal",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "PRIVATE_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_backslash",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "PRIVATE_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_absolute",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "PRIVATE_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_prefix",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "SIBLING_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_root_override",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "PRIVATE_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_root_alternate",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "SIBLING_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        }
+      ]
+    },
+    {
+      "label": "comparison",
+      "timestamp": "2026-09-22T17:12:41.666266+00:00",
+      "source_sha256": "c446fb945e8b3d727cfb68dd73cc79831e90f18d3ee96ced0ff475cf22bc43bc",
+      "python": "3.14.5",
+      "met": 17,
+      "total": 19,
+      "cases": [
+        {
+          "id": "record_owner_alice",
+          "function": "record",
+          "expected": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "actual": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_owner_bob",
+          "function": "record",
+          "expected": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "actual": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_foreign_alice",
+          "function": "record",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_foreign_bob",
+          "function": "record",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_apple",
+          "function": "search",
+          "expected": {
+            "value": [
+              "apple"
+            ]
+          },
+          "actual": {
+            "value": [
+              "apple"
+            ]
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_banana",
+          "function": "search",
+          "expected": {
+            "value": [
+              "banana"
+            ]
+          },
+          "actual": {
+            "value": [
+              "banana"
+            ]
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_absent",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_true",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_false",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_union",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_quote",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_public",
+          "function": "download",
+          "expected": {
+            "value": "PUBLIC_MARKER"
+          },
+          "actual": {
+            "value": "PUBLIC_MARKER"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_nested",
+          "function": "download",
+          "expected": {
+            "value": "NESTED_PUBLIC"
+          },
+          "actual": {
+            "value": "NESTED_PUBLIC"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_traversal",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_backslash",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_absolute",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_prefix",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_root_override",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "PRIVATE_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        },
+        {
+          "id": "file_root_alternate",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "value": "SIBLING_SYNTHETIC_MARKER"
+          },
+          "secure_expectation_met": false
+        }
+      ]
+    },
+    {
+      "label": "target_after",
+      "timestamp": "2026-09-22T17:13:19.134175+00:00",
+      "source_sha256": "2bc0b16ff499006c2f94ecf4ab92fbe7a72f3fdd27d34d4a2e2feaecd14ed9e0",
+      "python": "3.14.5",
+      "met": 19,
+      "total": 19,
+      "cases": [
+        {
+          "id": "record_owner_alice",
+          "function": "record",
+          "expected": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "actual": {
+            "value": "ALICE_TEST_RECORD"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_owner_bob",
+          "function": "record",
+          "expected": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "actual": {
+            "value": "BOB_TEST_RECORD"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_foreign_alice",
+          "function": "record",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "record_foreign_bob",
+          "function": "record",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_apple",
+          "function": "search",
+          "expected": {
+            "value": [
+              "apple"
+            ]
+          },
+          "actual": {
+            "value": [
+              "apple"
+            ]
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_banana",
+          "function": "search",
+          "expected": {
+            "value": [
+              "banana"
+            ]
+          },
+          "actual": {
+            "value": [
+              "banana"
+            ]
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_absent",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_true",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_false",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_union",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "search_quote",
+          "function": "search",
+          "expected": {
+            "value": []
+          },
+          "actual": {
+            "value": []
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_public",
+          "function": "download",
+          "expected": {
+            "value": "PUBLIC_MARKER"
+          },
+          "actual": {
+            "value": "PUBLIC_MARKER"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_nested",
+          "function": "download",
+          "expected": {
+            "value": "NESTED_PUBLIC"
+          },
+          "actual": {
+            "value": "NESTED_PUBLIC"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_traversal",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_backslash",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_absolute",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_prefix",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_root_override",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        },
+        {
+          "id": "file_root_alternate",
+          "function": "download",
+          "expected": {
+            "exception": "PermissionError"
+          },
+          "actual": {
+            "exception": "PermissionError",
+            "message": "Not permitted"
+          },
+          "secure_expectation_met": true
+        }
+      ]
+    }
+  ],
+  "post_fix_check_exit_codes": {
+    "ruff": 0,
+    "mypy": 0,
+    "bandit": 0,
+    "pytest": 0,
+    "syntax": 0
+  }
+}

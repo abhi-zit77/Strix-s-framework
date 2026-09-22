@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.security-review-artifacts/
+evaluation-runs/
+*.egg-info/
+.env
+.env.*

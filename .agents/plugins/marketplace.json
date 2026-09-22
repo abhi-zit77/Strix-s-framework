@@ -1,0 +1,20 @@
+{
+  "name": "strix-framework",
+  "interface": {
+    "displayName": "Strix Framework"
+  },
+  "plugins": [
+    {
+      "name": "strix-framewok",
+      "source": {
+        "source": "local",
+        "path": "./plugins/strix-framewok"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
