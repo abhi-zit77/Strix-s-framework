@@ -19,7 +19,7 @@ Windows 11, Python 3.14.5. All listed checks passed before publication:
 | Ruff | No errors |
 | Strict MyPy | No issues in 13 source files |
 | Bandit on installer, validator and comparison fixtures | No findings or warnings; deliberately vulnerable examples excluded |
-| Pytest repository suite | 19 passed; installation, packaging, malformed-input validation and representative security fixtures |
+| Pytest repository suite | 20 passed; installation, packaging, malformed-input validation and representative security fixtures |
 | Codex skill-creator `quick_validate.py` | Skill valid |
 | Codex plugin-creator `validate_plugin.py` | Plugin valid |
 | Claude Code 2.1.280 `plugin validate . --strict` | Marketplace passed with no warnings |
@@ -31,6 +31,8 @@ No global skill/plugin installation or authenticated Claude session was performe
 Codex checks include bundled validators and a Codex-host evaluator, not plugin
 loading in every Codex release. GitHub Actions repeats repository checks on Linux
 Python 3.12 and Windows Python 3.14; consult its run results for remote evidence.
+The first Linux run caught inline example syntax being mistaken for a link;
+the checker now excludes inline code, with a dedicated regression.
 
 ## Independent skill-guided evaluation
 

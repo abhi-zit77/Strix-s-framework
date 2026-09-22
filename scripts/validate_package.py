@@ -29,7 +29,7 @@ def read_json(path: Path) -> dict[str, Any]:
 
 
 def markdown_links(text: str) -> list[str]:
-    """Extract local file links outside fenced examples."""
+    """Extract local file links outside fenced examples and inline code."""
     plain: list[str] = []
     fence: str | None = None
     for line in text.splitlines():
@@ -43,7 +43,8 @@ def markdown_links(text: str) -> list[str]:
             continue
         if fence is None:
             plain.append(line)
-    return re.findall(r"\[[^\]\n]+\]\(([^\s)]+)\)", "\n".join(plain))
+    prose = re.sub(r"(`+)(?!`)(.*?)(?<!`)\1(?!`)", "", "\n".join(plain), flags=re.S)
+    return re.findall(r"\[[^\]\n]+\]\(([^\s)]+)\)", prose)
 
 
 def validate(root: Path = ROOT, upstream: Path | None = None) -> list[str]:

@@ -14,6 +14,11 @@ def test_fenced_examples_are_not_file_links() -> None:
     assert markdown_links(text) == ["real.md", "next.md"]
 
 
+def test_inline_code_is_not_a_file_link() -> None:
+    text = "Call `lookup[key](...)`; ``literal ` [example](missing)``; [real](real.md)"
+    assert markdown_links(text) == ["real.md"]
+
+
 def test_missing_reference_fails_validation(tmp_path: Path) -> None:
     package = tmp_path / "package"
     shutil.copytree(ROOT, package, ignore=shutil.ignore_patterns(".git", ".*cache"))

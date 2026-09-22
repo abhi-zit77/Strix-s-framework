@@ -14,6 +14,7 @@ behavioral evaluation is recorded separately.
 | --- | --- |
 | Browser guide linked absent companions | Replaced with bundled guidance; tests reject missing/escaping links |
 | Empty marketplace array could crash validation | Added shape check and regression; CLI reports malformed data as failure |
+| Linux CI parsed inline SSTI sample as a local link | Excluded inline code spans and added regression; retain both OS jobs because Windows path normalization hid it |
 | Strict marketplace check warned about missing description | Added metadata; native Claude validation passes |
 | Next.js examples assumed universal route/environment enumeration | Guarded optional Pages hints; removed environment enumeration; require observed/source coverage |
 | Severity always demanded numeric CVSS | Aligned qualitative/unscored option and confidence with main contract |
